@@ -1,0 +1,17 @@
+[user]
+    name = Lluc Martorell
+    email = superpesi@gmail.com
+[core]
+    editor = vim
+[pull]
+	rebase = true
+[pager]
+	branch = false
+[alias]
+	pls = push --force-with-lease
+	st = status -s
+	br = branch -vv
+	co = checkout
+	cm = commit -m
+	cmend = commit --amend
+	cmendo = commit --amend --no-edit
