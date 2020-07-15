@@ -1,0 +1,23 @@
+{
+    "window.menuBarVisibility": "toggle",
+    "workbench.activityBar.visible": false,
+    "workbench.colorTheme": "Gruvbox Dark (Hard)",
+    "editor.fontFamily": "JetBrains Mono, Fira Code,'Droid Sans Mono'",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.autoIndent": false,
+    "editor.rulers": [
+        80,
+        100,
+        120
+    ],
+    "window.zoomLevel": 0,
+    "autoimport.semicolon": false,
+    "material-icon-theme.activeIconPack": "react",
+    "todohighlight.isEnable": true,
+    "python.pythonPath": "/usr/bin/python3",
+    "breadcrumbs.enabled": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.minimap.enabled": false,
+    "svelte.language-server.runtime": "/usr/bin/node"
+}

@@ -1,0 +1,34 @@
+# WHAT???
+- defaults:
+  link:
+    relink: true
+    create: true
+
+  shell:
+    quiet: true
+    stdout: true
+    stdin: true
+    stderr: true
+
+- clean: [~]
+
+- link:
+  ~/.gitconfig: .
+  ~/.zshrc: .
+  ~/.config/Code/User/settings.json: .vscode.settings.json
+
+- create:
+  - ~/dev
+
+- shell:
+  -
+    command: chsh -s $(which zsh)
+    description: Making zsh the default shell
+
+# install JetBrains mono font
+# install zsh -> default
+# install ohmyzsh
+# install docker -> root
+# install chrome
+# install spotify
+# install vscode -> extension colors
