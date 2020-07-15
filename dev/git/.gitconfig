@@ -1,0 +1,21 @@
+[user]
+    name = Lluc Martorell
+    email = "{{ .Env.EMAIL }}"
+{{end}}
+[core]
+    editor = vim
+    excludesfile = ~/.gitignore
+[pull]
+    rebase = true
+[pager]
+    branch = false
+[alias]
+    pls = push --force-with-lease
+    st = status -s
+    br = branch -vv
+    co = checkout
+    cm = commit -m
+    cmend = commit --amend
+    cmendo = commit --amend --no-edit --no-verify
+    wip = !git add -A && git commit --no-verify -m "[wip]"
+    unwip = "! git --no-pager log -n 1 | grep "\\[wip\\]" && git reset @^1"
