@@ -1,10 +1,11 @@
 [user]
     name = Lluc Martorell
     email = "{{ .Env.EMAIL }}"
-{{end}}
 [core]
     editor = vim
-    excludesfile = ~/.gitignore
+    excludesfile = ~/.config/git/gitignore
+[init]
+    templatedir = ~/.config/git/templates
 [pull]
     rebase = true
 [pager]
