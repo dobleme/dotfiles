@@ -1,0 +1,13 @@
+#!/bin/bash
+
+installable_apps=(nodejs docker)
+
+# shellcheck disable=SC2076
+if [[ ! " ${installable_apps[*]} " =~ " ${1} " ]]; then
+  echo "✘ Not eligible install script for \"${1}\""
+  exit 1
+fi
+
+echo "➜ Installing \"${1}\"..."
+bash "${HM_SRC}/scripts/${1}"
+echo "✔ \"${1}\" successfully installed!"
