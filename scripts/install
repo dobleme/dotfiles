@@ -1,13 +1,24 @@
 #!/bin/bash
 
-installable_apps=(nodejs docker)
+function nodejs() {
+  curl -fsSL https://deb.nodesource.com/setup_current.x | bash -
+  apt-get install -y nodejs
+}
 
-# shellcheck disable=SC2076
-if [[ ! " ${installable_apps[*]} " =~ " ${1} " ]]; then
-  echo "✘ Not eligible install script for \"${1}\""
-  exit 1
-fi
+function docker() {
+  curl -fsSL https://get.docker.com | bash -
+  usermod -aG docker "${USER}"
+}
 
 echo "➜ Installing \"${1}\"..."
-bash "${HM_SRC}/scripts/${1}"
+
+case $1 in
+  nodejs) nodejs;;
+  docker) docker;;
+  *)
+    echo "✘ Not eligible install script for \"${1}\""
+    exit 1
+    ;;
+esac
+
 echo "✔ \"${1}\" successfully installed!"
