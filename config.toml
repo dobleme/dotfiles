@@ -1,1 +1,57 @@
-# TODO: sudo[macros.local]    prefix = ["bash", "${PWD}/scripts/install"][macros.apt]    deps = ["update"]    prefix = ["apt-get", "install", "--yes"][macros.npm]    prefix = ["npm", "install", "-g"][tasks.update]    cmds = [["apt-get", "update"]]### dev[tasks.dev]    deps = ["curl", "docker", "git"][tasks.curl]    cmds = [["@apt", "curl"]][tasks.docker]    rejects = [["which", "docker"]]    cmds = [["@local", "docker"]]    links = [[".docker/config.json", "dev/docker/config.json"]][tasks.node]    rejects = [["which", "node"]]    cmds = [        ["@local", "nodejs"],        ["@npm", "npm"]    ][tasks.commitlint]    deps = ["node"]    cmds = [["@npm", "@commitlint/cli", "@commitlint/config-conventional"]][tasks.git]    deps = ["commitlint"]    cmds = [["@apt", "git", "tig"]]    templates = [[".gitconfig", "dev/git/.gitconfig"]]    links = [        [".config/git/.gitignore", "dev/git/.gitignore"],        [".config/git/templates/hooks", "dev/git/hooks"],        [".config/git/commitlint.js", "dev/git/commitlint.js"]    ]# global[tasks.default]    envs = [["EMAIL", "dev@lluc.me"]]    deps = ["dev"][tasks.default__oa]    envs = [["EMAIL", "lluc.martorell@omniaccess.com"]]    deps = ["dev"]
+# TODO: sudo
+[macros.local]
+prefix = ["bash", "${PWD}/scripts/install"]
+
+[macros.apt]
+deps = ["update"]
+prefix = ["apt-get", "install", "--yes"]
+
+[macros.npm]
+prefix = ["npm", "install", "-g"]
+
+[tasks.update]
+cmds = [["apt-get", "update"]]
+
+
+### dev
+[tasks.dev]
+deps = ["curl", "docker", "git"]
+
+[tasks.curl]
+cmds = [["@apt", "curl"]]
+
+[tasks.docker]
+rejects = [["which", "docker"]]
+cmds = [["@local", "docker"]]
+links = [[".docker/config.json", "dev/docker/config.json"]]
+
+[tasks.node]
+rejects = [["which", "node"]]
+cmds = [
+  ["@local", "nodejs"],
+  ["@npm", "npm"]
+]
+
+[tasks.commitlint]
+deps = ["node"]
+cmds = [["@npm", "@commitlint/cli", "@commitlint/config-conventional"]]
+
+[tasks.git]
+deps = ["commitlint"]
+cmds = [["@apt", "git", "tig"]]
+templates = [[".gitconfig", "dev/git/.gitconfig"]]
+links = [
+  [".config/git/.gitignore", "dev/git/.gitignore"],
+  [".config/git/templates/hooks", "dev/git/hooks"],
+  [".config/git/commitlint.js", "dev/git/commitlint.js"]
+]
+
+# global
+
+[tasks.default]
+envs = [["EMAIL", "dev@lluc.me"]]
+deps = ["dev"]
+
+[tasks.default__oa]
+envs = [["EMAIL", "lluc.martorell@omniaccess.com"]]
+deps = ["dev"]
