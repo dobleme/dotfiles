@@ -1,0 +1,20 @@
+# Environment variables
+
+# System
+export PATH=$HOME/.local/bin:$PATH
+export EDITOR=vim
+
+# History
+export HISTFILE=$HOME/.cache/history
+export HISTSIZE=5000
+
+# Go
+export GOPATH=$HOME/.local/go
+export PATH=$GOPATH/bin:$PATH
+
+# Node
+export NPM_CONFIG_PREFIX=$HOME/.local/npm
+export PATH=$NPM_CONFIG_PREFIX/bin:$PATH
+
+# Docker
+export DOCKER_BUILDKIT=1

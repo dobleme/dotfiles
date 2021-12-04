@@ -1,0 +1,31 @@
+[user]
+    name = Lluc Martorell
+    email = dev@lluc.me
+[core]
+    editor = vim
+    excludesfile = ~/.config/git/ignore
+[init]
+    defaultBranch = main
+[pull]
+    rebase = true
+[push]
+    autoSetupRemote = true
+[pager]
+    branch = false
+[alias]
+    pls = push --force-with-lease
+    st = status -s
+    br = branch -vv
+    co = checkout
+    cm = !cz c
+    cmend = commit --amend
+    cmendo = commit --amend --no-edit 
+    cpk = cherry-pick
+    g = grep
+    wip = commit -m "[wip]"
+    wipa = !git add -A && git commit -m "[wip]"
+    unwip = !git --no-pager log -n 1 | grep "\\[wip\\]" && git reset @^1
+    reseto = !git fetch && git reset --hard FETCH_HEAD
+
+[includeIf "gitdir:~/dev/work/"]
+    path = ~/.config/git/work

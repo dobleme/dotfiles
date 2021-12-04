@@ -1,0 +1,68 @@
+format = """
+$sudo\
+$directory\
+$vcsh\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$package\
+$golang\
+$nodejs\
+$php\
+$python\
+$env_var\
+$custom\
+$character"""
+
+# move the rest of the prompt to the right
+right_format = """
+$git_metrics\
+$status"""
+
+add_newline = false
+
+#command_timeout = 60000
+
+########
+# Left #
+########
+[sudo]
+disabled = false
+format = '[$symbol]($style) '
+symbol = '🧙🏽'
+
+
+[directory]
+disabled = false
+truncation_length = 2
+truncation_symbol = './'
+
+[git_branch]
+disabled = false
+symbol = ' '
+
+[git_commit]
+disabled = false
+
+[git_state]
+disabled = false
+
+[git_status]
+disabled = false
+
+[character]
+success_symbol = '[](bold green)'
+error_symbol = '[](bold red)'
+
+#########
+# Right #
+#########
+[git_metrics]
+disabled = false
+format = ' ([+ $added]($added_style)) ([- $deleted]($deleted_style))'
+
+[status]
+disabled = false
+format = ' [\[$status\]]($style)'
+style = 'yellow'

@@ -1,0 +1,7 @@
+# Aliases
+
+alias v="vim"
+alias gti="git"
+
+alias l="ls -lha"
+alias ll="ls -lh"
