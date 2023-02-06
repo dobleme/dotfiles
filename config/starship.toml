@@ -17,8 +17,7 @@ $character"""
 
 # move the rest of the prompt to the right
 right_format = """
-$git_metrics\
-$status"""
+$git_metrics"""
 
 add_newline = false
 
@@ -61,8 +60,3 @@ error_symbol = '[](bold red)'
 [git_metrics]
 disabled = false
 format = ' ([+ $added]($added_style)) ([- $deleted]($deleted_style))'
-
-[status]
-disabled = false
-format = ' [\[$status\]]($style)'
-style = 'yellow'
