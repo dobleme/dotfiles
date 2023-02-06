@@ -12,7 +12,6 @@ setopt share_history
 setopt hist_save_no_dups
 setopt hist_ignore_all_dups
 setopt append_history
-setopt hist_no_store
 
 # ZSH plugin imports
 # plugins=(fzf-completion fzf-key-bindings)
