@@ -22,4 +22,4 @@ setopt hist_no_store
 
 eval "$(starship init zsh)"
 
-#source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
