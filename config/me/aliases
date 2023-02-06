@@ -3,5 +3,6 @@
 alias v="vim"
 alias gti="git"
 
+alias ls="ls --color"
 alias l="ls -lha"
 alias ll="ls -lh"
