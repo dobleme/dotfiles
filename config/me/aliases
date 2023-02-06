@@ -6,3 +6,5 @@ alias gti="git"
 alias ls="ls --color"
 alias l="ls -lha"
 alias ll="ls -lh"
+
+alias play="ansible-playbook"
