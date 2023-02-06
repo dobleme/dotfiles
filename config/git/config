@@ -17,7 +17,7 @@
     st = status -s
     br = branch -vv
     co = checkout
-    cm = !cz c
+    cm = commit -m
     cmend = commit --amend
     cmendo = commit --amend --no-edit 
     cpk = cherry-pick
