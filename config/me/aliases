@@ -1,7 +1,16 @@
 # Aliases
 
+alias z="source $HOME/.zshrc"
+
+alias s="sudo"
 alias v="vim"
-alias gti="git"
+alias g="git"
+alias d="docker"
+
+alias .="cd ~"
+alias ..="cd .."
+alias ...="cd ../.."
+alias -- '-=cd -'
 
 alias ls="ls --color"
 alias l="ls -lha"
