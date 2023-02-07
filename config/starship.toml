@@ -6,7 +6,6 @@ $git_branch\
 $git_commit\
 $git_state\
 $git_status\
-$package\
 $golang\
 $nodejs\
 $php\
@@ -31,11 +30,15 @@ disabled = false
 format = '[$symbol]($style) '
 symbol = '🧙🏽'
 
-
 [directory]
 disabled = false
 truncation_length = 2
 truncation_symbol = './'
+
+[php]
+disabled = false
+format = '[{$symbol}]($style) '
+symbol = '🐘'
 
 [git_branch]
 disabled = false
@@ -59,4 +62,4 @@ error_symbol = '[](bold red)'
 #########
 [git_metrics]
 disabled = false
-format = ' ([+ $added]($added_style)) ([- $deleted]($deleted_style))'
+format = ' ([$added]($added_style)) ([$deleted]($deleted_style))'
