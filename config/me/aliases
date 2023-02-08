@@ -16,4 +16,6 @@ alias ls="ls --color"
 alias l="ls -lha"
 alias ll="ls -lh"
 
+alias cat="batcat"
+
 alias play="ansible-playbook"
