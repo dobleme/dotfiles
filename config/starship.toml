@@ -6,17 +6,15 @@ $git_branch\
 $git_commit\
 $git_state\
 $git_status\
-$golang\
-$nodejs\
-$php\
-$python\
-$env_var\
 $custom\
 $character"""
 
 # move the rest of the prompt to the right
 right_format = """
-$git_metrics"""
+$golang\
+$php\
+$python\
+$env_var"""
 
 add_newline = false
 
@@ -32,34 +30,58 @@ symbol = '🧙🏽'
 
 [directory]
 disabled = false
-truncation_length = 2
-truncation_symbol = './'
-
-[php]
-disabled = false
-format = '[{$symbol}]($style) '
-symbol = '🐘'
+truncation_length = 1
+truncation_symbol = ' '
 
 [git_branch]
 disabled = false
-symbol = ' '
+format = "[]($style)[[ ](bg:purple fg:bright-purple)$branch](bg:purple fg:bright-purple)[ ]($style)"
+style = "bg:none fg:purple"
 
 [git_commit]
 disabled = false
 
 [git_state]
-disabled = false
+disabled = true
 
 [git_status]
 disabled = false
+format = "[]($style)[$all_status$ahead_behind](bg:#24263a fg:#b4befe)[ ]($style)"
+style = "bg:none fg:#24263a"
+conflicted = "="
+ahead =	"⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+up_to_date = ""
+untracked = "?"
+stashed = "󰆓"
+modified = "!"
+staged = "+$"
+renamed = "»"
+deleted = ""
 
 [character]
-success_symbol = '[](bold green)'
-error_symbol = '[](bold red)'
+success_symbol = '[](bold green)'
+error_symbol = '[](bold red)'
 
 #########
 # Right #
 #########
-[git_metrics]
+
+[php]
 disabled = false
-format = ' ([$added]($added_style)) ([$deleted]($deleted_style))'
+format = "[]($style)[$symbol](bg:purple)[ ]($style)"
+style = "bg:none fg:purple"
+symbol = '🐘'
+
+[python]
+disabled = false
+format = "[]($style)[$symbol](bg:green)[ ]($style)"
+style = "bg:none fg:green"
+symbol = '🐍'
+
+[golang]
+disabled = false
+format = "[]($style)[$symbol](bg:cyan)[ ]($style)"
+style = "bg:none fg:cyan"
+symbol = '🇬'
