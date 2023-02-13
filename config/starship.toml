@@ -21,7 +21,7 @@ palette = 'bubble'
 
 [palettes.bubble]
 main = '#2c065b'
-secondary = "#ffe459"
+secondary = "#ffcd38"
 
 ########
 # Left #
