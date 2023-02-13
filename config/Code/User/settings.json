@@ -17,7 +17,7 @@
     "files.eol": "\n",
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
-    "editor.fontFamily": "'JetBrains Mono', 'arial', monospace",
+    "editor.fontFamily": "'JetBrainsMono Nerd Font Mono', 'arial', monospace",
     "editor.fontLigatures": true,
     "editor.fontWeight": "500",
 }
