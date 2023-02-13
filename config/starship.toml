@@ -17,25 +17,32 @@ $env_var"""
 
 add_newline = false
 
-#command_timeout = 60000
+palette = 'bubble'
+
+[palettes.bubble]
+main = '#2c065b'
+secondary = "#ffe459"
 
 ########
 # Left #
 ########
 [sudo]
 disabled = false
-format = '[$symbol]($style) '
-symbol = '🧙🏽'
+format = "[]($style)[$symbol](fg:main bg:secondary)[ ]($style)"
+style = "bg:none fg:secondary"
+symbol = '  '
 
 [directory]
 disabled = false
-truncation_length = 1
+truncation_length = 2
 truncation_symbol = ' '
+format = "[$path]($style) "
+style = "fg:secondary bold"
 
 [git_branch]
 disabled = false
-format = "[]($style)[[ ](bg:purple fg:bright-purple)$branch](bg:purple fg:bright-purple)[ ]($style)"
-style = "bg:none fg:purple"
+format = "[]($style)[[ ](fg:secondary bg:main)$branch](fg:secondary bg:main)[ ]($style)"
+style = "bg:none fg:main"
 
 [git_commit]
 disabled = false
@@ -45,8 +52,8 @@ disabled = true
 
 [git_status]
 disabled = false
-format = "[]($style)[$all_status$ahead_behind](bg:#24263a fg:#b4befe)[ ]($style)"
-style = "bg:none fg:#24263a"
+format = "[]($style)[$all_status$ahead_behind](bg:main fg:secondary)[ ]($style)"
+style = "bg:none fg:main"
 conflicted = "="
 ahead =	"⇡${count}"
 behind = "⇣${count}"
@@ -60,8 +67,8 @@ renamed = "»"
 deleted = ""
 
 [character]
-success_symbol = '[](bold green)'
-error_symbol = '[](bold red)'
+success_symbol = '[](bright-green)'
+error_symbol = '[](bright-red)'
 
 #########
 # Right #
@@ -69,18 +76,18 @@ error_symbol = '[](bold red)'
 
 [php]
 disabled = false
-format = "[]($style)[$symbol](bg:purple)[ ]($style)"
-style = "bg:none fg:purple"
-symbol = '🐘'
+format = "[]($style)[$symbol](fg:secondary bg:main)[ ]($style)"
+style = "bg:none fg:main"
+symbol = '  '
 
 [python]
 disabled = false
-format = "[]($style)[$symbol](bg:green)[ ]($style)"
-style = "bg:none fg:green"
-symbol = '🐍'
+format = "[]($style)[$symbol](fg:secondary bg:main)[ ]($style)"
+style = "bg:none fg:main"
+symbol = '  '
 
 [golang]
 disabled = false
-format = "[]($style)[$symbol](bg:cyan)[ ]($style)"
-style = "bg:none fg:cyan"
-symbol = '🇬'
+format = "[]($style)[$symbol](fg:secondary bg:main)[ ]($style)"
+style = "bg:none fg:main"
+symbol = '  '
