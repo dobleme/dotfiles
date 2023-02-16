@@ -31,6 +31,7 @@ bindkey -M emacs '^R' fzf-history-widget
 bindkey -M emacs '^F' fzf-file-widget
 bindkey -M emacs '^[^F' fzf-cd-widget
 
+eval "$(jump shell)"
 eval "$(starship init zsh)"
 
 # zsh syntax highlight plugin
