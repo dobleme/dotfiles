@@ -10,6 +10,7 @@ $character"""
 
 # move the rest of the prompt to the right
 right_format = """
+$env_var\
 $golang\
 $php\
 $python\
@@ -20,8 +21,8 @@ add_newline = false
 palette = 'bubble'
 
 [palettes.bubble]
-main = '#2c065b'
-secondary = "#ffcd38"
+main = '#060047'
+secondary = "#FF5F9E"
 
 ########
 # Left #
@@ -73,6 +74,12 @@ error_symbol = '[](bright-red)'
 #########
 # Right #
 #########
+
+[env_var.PIPENV_ACTIVE]
+disabled = false
+variable = 'PIPENV_ACTIVE'
+format = "[]($style)[$symbol](fg:secondary bg:main)[ ]($style)"
+symbol = " 󰏗 "
 
 [php]
 disabled = false

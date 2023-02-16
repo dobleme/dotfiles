@@ -19,3 +19,6 @@ alias ll="ls -lh"
 alias cat="batcat"
 
 alias play="ansible-playbook"
+
+alias venv="python -m venv ${PWD}/venv"
+alias activate="source ${PWD}/venv/bin/activate"
