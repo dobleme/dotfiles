@@ -14,7 +14,7 @@ $env_var\
 $golang\
 $php\
 $python\
-$env_var"""
+$gcloud"""
 
 add_newline = false
 
@@ -98,3 +98,15 @@ disabled = false
 format = "[]($style)[$symbol](fg:secondary bg:main)[ ]($style)"
 style = "bg:none fg:main"
 symbol = '  '
+
+[gcloud]
+disabled = false
+format = "[]($style)[$symbol$project](fg:secondary bg:main)[ ]($style)"
+style = "bg:none fg:main"
+symbol = ' '
+
+[gcloud.project_aliases]
+metro-markets-greenfield = 'gf'
+metro-markets-dev = 'dev'
+metro-markets-staging = 'pre'
+metro-markets-prod = 'pro'
