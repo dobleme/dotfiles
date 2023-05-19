@@ -100,7 +100,7 @@ style = "bg:none fg:main"
 symbol = '  '
 
 [gcloud]
-disabled = false
+disabled = true
 format = "[]($style)[$symbol$project](fg:secondary bg:main)[ ]($style)"
 style = "bg:none fg:main"
 symbol = ' '
