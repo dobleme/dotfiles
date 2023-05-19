@@ -2,7 +2,7 @@
     name = Lluc Martorell
     email = dev@lluc.me
 [core]
-    editor = vim
+    editor = nvim
     excludesfile = ~/.config/git/ignore
 [init]
     defaultBranch = main

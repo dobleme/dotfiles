@@ -2,6 +2,8 @@
 
 alias z="source $HOME/.zshrc"
 
+alias vim="nvim"
+
 alias s="sudo"
 alias v="vim"
 alias g="git"
