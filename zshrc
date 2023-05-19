@@ -32,6 +32,7 @@ bindkey -M emacs '^F' fzf-file-widget
 bindkey -M emacs '^[^F' fzf-cd-widget
 
 eval "$(jump shell)"
+eval "$(pyenv init -)"
 eval "$(starship init zsh)"
 
 # zsh syntax highlight plugin

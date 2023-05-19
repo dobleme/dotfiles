@@ -21,3 +21,6 @@ export PATH=$NPM_CONFIG_PREFIX/bin:$PATH
 
 # Docker
 export DOCKER_BUILDKIT=1
+
+# Pyenv
+export PYENV_ROOT=$HOME/.pyenv
