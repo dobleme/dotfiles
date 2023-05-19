@@ -18,11 +18,12 @@
     st = status -s
     br = branch -vv
     co = checkout
-    cm = commit -m
-    cmend = commit --amend
+    cm = commit --verbose
+    cmm = commit -m
+    cmend = commit --verbose --amend
     cmendo = commit --amend --no-edit 
     cpk = cherry-pick
-    g = grep
+    gr = grep
     wip = commit -m "[wip]"
     wipa = !git add -A && git commit -m "[wip]"
     unwip = !git --no-pager log -n 1 | grep "\\[wip\\]" && git reset @^1
