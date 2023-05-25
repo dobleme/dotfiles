@@ -49,5 +49,14 @@ lsp.configure('cmake', {
     filetypes = { 'cmake', 'make' }
 })
 
+local nls = require('null-ls')
+local sources = {
+    nls.builtins.formatting.black.with({
+        args = { "-t", "py310", "-l", "79", "--stdin-filename", "$FILENAME", "--quiet", "-" }
+    }),
+    nls.builtins.formatting.goimports
+}
+nls.setup({ debug = true, sources = sources })
+
 lsp.setup()
 
