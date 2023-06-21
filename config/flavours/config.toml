@@ -3,3 +3,9 @@ file = '~/.config/alacritty/alacritty.yml'
 template = 'alacritty'
 subtemplate = 'default-256'
 rewrite = false
+
+[[items]]
+file = '~/.config/tmux/tmux.conf'
+template = 'tmux'
+subtemplate = 'default'
+rewrite = false
