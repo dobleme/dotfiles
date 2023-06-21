@@ -2,7 +2,7 @@ autoload -Uz compinit && compinit
 
 imports=(envs aliases funcs)
 for import in $imports ; do
-    [ -f ~/.config/me/$import ] && source ~/.config/me/$import
+    [ -f ~/.config/zsh/$import ] && source ~/.config/zsh/$import
 done
 
 # fzf zsh plugins
