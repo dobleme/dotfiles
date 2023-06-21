@@ -1,8 +1,10 @@
 # Environment variables
 
+typeset -U path
+
 # System
-export PATH=$HOME/.local/bin:$PATH
-export EDITOR=vim
+path=($HOME/.local/bin "$path[@]")
+export EDITOR=nvim
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
@@ -13,14 +15,13 @@ export SAVEHIST=$HISTSIZE
 
 # Go
 export GOPATH=$HOME/.local/go
-export PATH=$GOPATH/bin:$PATH
+path=($GOPATH/bin "$path[@]")
 
 # Node
 export NPM_CONFIG_PREFIX=$HOME/.local/npm
-export PATH=$NPM_CONFIG_PREFIX/bin:$PATH
+path=($NPM_CONFIG_PREFIX/bin "$path[@]")
 
-# Docker
+# Others
 export DOCKER_BUILDKIT=1
-
-# Pyenv
 export PYENV_ROOT=$HOME/.pyenv
+export FLAVOURS_DATA_DIRECTORY=$HOME/.config/flavours
