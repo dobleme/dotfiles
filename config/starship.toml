@@ -2,111 +2,49 @@ format = """
 $sudo\
 $directory\
 $git_branch\
-$git_commit\
-$git_state\
 $git_status\
+$git_state\
 $custom\
 $character"""
 
-# move the rest of the prompt to the right
-right_format = """
-$env_var\
-$golang\
-$php\
-$python\
-$gcloud"""
-
 add_newline = false
 
-palette = 'bubble'
-
-[palettes.bubble]
-main = '#060047'
-secondary = "#FF5F9E"
-
-########
-# Left #
-########
 [sudo]
 disabled = false
-format = "[]($style)[$symbol](fg:main bg:secondary)[ ]($style)"
-style = "bg:none fg:secondary"
-symbol = '  '
+format = "[$symbol ]($style)"
+style = 'bold bright-purple'
+symbol = 'Σ'
+#symbol = 'ł'
+#symbol = '¶'
+#symbol = 'ø'
 
 [directory]
 disabled = false
-truncation_length = 2
-truncation_symbol = ' '
-format = "[$path]($style) "
-style = "fg:secondary bold"
+style = "bold bright-blue"
 
 [git_branch]
 disabled = false
-format = "[]($style)[[ ](fg:secondary bg:main)$branch](fg:secondary bg:main)[ ]($style)"
-style = "bg:none fg:main"
-
-[git_commit]
-disabled = false
-
-[git_state]
-disabled = true
+format = '[$branch]($style)'
+style = "bright-white"
 
 [git_status]
 disabled = false
-format = "[]($style)[$all_status$ahead_behind](bg:main fg:secondary)[ ]($style)"
-style = "bg:none fg:main"
-conflicted = "="
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](white) ($ahead_behind )](bright-yellow)"
+conflicted = " \b"
+untracked = " \b"
+modified = " \b"
+staged = " \b"
+renamed = " \b"
+deleted = " \b"
 ahead =	"⇡${count}"
 behind = "⇣${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-up_to_date = ""
-untracked = "?"
-stashed = "${count}"
-modified = "!"
-staged = "+$"
-renamed = "»"
-deleted = ""
+diverged = "⇡${ahead_count}⇣${behind_count}"
+up_to_date = ""
+
+[git_state]
+# TODO
+disabled = false
 
 [character]
 success_symbol = '[](bright-green)'
 error_symbol = '[](bright-red)'
-
-#########
-# Right #
-#########
-
-[env_var.PIPENV_ACTIVE]
-disabled = false
-variable = 'PIPENV_ACTIVE'
-format = "[]($style)[$symbol](fg:secondary bg:main)[ ]($style)"
-symbol = " 󰏗 "
-
-[php]
-disabled = false
-format = "[]($style)[$symbol](fg:secondary bg:main)[ ]($style)"
-style = "bg:none fg:main"
-symbol = '  '
-
-[python]
-disabled = false
-format = "[]($style)[$symbol](fg:secondary bg:main)[ ]($style)"
-style = "bg:none fg:main"
-symbol = '  '
-
-[golang]
-disabled = false
-format = "[]($style)[$symbol](fg:secondary bg:main)[ ]($style)"
-style = "bg:none fg:main"
-symbol = '  '
-
-[gcloud]
-disabled = true
-format = "[]($style)[$symbol$project](fg:secondary bg:main)[ ]($style)"
-style = "bg:none fg:main"
-symbol = ' '
-
-[gcloud.project_aliases]
-metro-markets-greenfield = 'gf'
-metro-markets-dev = 'dev'
-metro-markets-staging = 'pre'
-metro-markets-prod = 'pro'
