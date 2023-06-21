@@ -3,7 +3,7 @@ require('dobleme.remap')
 require('dobleme.packer')
 
 require('fluoromachine').setup({
-    theme = 'retrowave',
+    theme = 'delta',
     transparent = true,
     --overrides = function(c)
     --    return {
