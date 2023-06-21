@@ -1,14 +1,13 @@
-autoload -Uz compinit
-compinit
+autoload -Uz compinit && compinit
 
-imports=(envs aliases)
+imports=(envs aliases funcs)
 for import in $imports ; do
     [ -f ~/.config/me/$import ] && source ~/.config/me/$import
 done
 
 # fzf zsh plugins
-source ~/.config/zsh/plugins/fzf/shell/completion.zsh
 source ~/.config/zsh/plugins/fzf/shell/key-bindings.zsh
+# source ~/.config/zsh/plugins/fzf/shell/completion.zsh
 
 # history
 setopt inc_append_history

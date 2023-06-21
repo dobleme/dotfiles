@@ -22,11 +22,3 @@ alias play="ansible-playbook"
 
 alias venv="python -m venv ${PWD}/venv"
 alias activate="source ${PWD}/venv/bin/activate"
-
-# Functions
-
-archive-br() {
-  git checkout master
-  git tag archive/$1 $1
-  git branch -d $1
-}

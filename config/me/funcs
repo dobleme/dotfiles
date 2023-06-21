@@ -1,0 +1,41 @@
+CHTSH_URL="https://cht.sh"
+
+function cht() {
+    local selected
+    selected=$(
+        curl --silent --max-time 1 "${CHTSH_URL}/:list" | \
+        rg "^[a-zA-z0-9-]+$" | \
+        fzf --preview="curl --silent --max-time 1 ${CHTSH_URL}/{}"
+    )
+
+    test $selected && \
+        curl --silent --max-time 1 "${CHTSH_URL}/${selected}" | \
+            bat --file-name="${selected}" - || \
+        return 0
+}
+
+function chtl() {
+    local selected
+    selected=$(
+        curl --silent --max-time 1 "${CHTSH_URL}/:list" | \
+        rg ":learn$" | cut --delimiter="/" --fields=1 | \
+        fzf --preview="curl --silent --max-time 1 ${CHTSH_URL}/{}/:learn"
+    )
+
+    test $selected || return 0
+
+    local query
+    vared -p "Enter query: " query
+    if [[ -z $query ]]; then
+        query=":learn"
+    fi
+
+    curl --silent --max-time 1 "${CHTSH_URL}/${selected}/${query}" | \
+    bat --file-name="${selected}/${query}" -
+}
+
+function archive-br() {
+  git checkout master
+  git tag archive/$1 $1
+  git branch -d $1
+}
