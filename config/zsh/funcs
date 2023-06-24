@@ -1,12 +1,15 @@
+# cht.sh functions
 CHTSH_URL="https://cht.sh"
-
 function cht() {
-    local selected
-    selected=$(
-        curl --silent --max-time 1 "${CHTSH_URL}/:list" | \
-        rg "^[a-zA-z0-9-]+$" | \
-        fzf --preview="curl --silent --max-time 1 ${CHTSH_URL}/{}"
-    )
+    local selected=$1
+
+    if [[ -z $selected ]]; then
+        selected=$(
+            curl --silent --max-time 1 "${CHTSH_URL}/:list" | \
+            rg "^[a-zA-z0-9-]+$" | \
+            fzf --preview="curl --silent --max-time 1 ${CHTSH_URL}/{}"
+        )
+    fi
 
     test $selected && \
         curl --silent --max-time 1 "${CHTSH_URL}/${selected}" | \
