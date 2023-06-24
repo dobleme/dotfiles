@@ -37,8 +37,21 @@ function chtl() {
     bat --file-name="${selected}/${query}" -
 }
 
+# git functions
 function archive-br() {
   git checkout master
   git tag archive/$1 $1
   git branch -d $1
+}
+
+# tmux function
+function tn() {
+    local session=$(pwd | sed 's/^\/.*\///g')
+    local exists=$(tmux list-sessions -F "#{session_name}" | grep $session)
+
+    if [[ -z $exists ]]; then
+        tmux new-session -c $PWD -s $session
+    else
+        tmux attach-session -t $session
+    fi
 }
