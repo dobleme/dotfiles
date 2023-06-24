@@ -48,7 +48,7 @@ up_to_date = ""
 
 [git_metrics]
 disabled = false
-format = '([\[](bright-black)[+$added](green))([-$deleted](red)[\]](bright-black) )'
+format = '([\[](bright-black)([+$added](dimmed green))([-$deleted](dimmed red))[\]](bright-black) )'
 
 [git_state]
 # TODO
