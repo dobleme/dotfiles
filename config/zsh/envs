@@ -25,3 +25,4 @@ path=($NPM_CONFIG_PREFIX/bin "$path[@]")
 export DOCKER_BUILDKIT=1
 export PYENV_ROOT=$HOME/.pyenv
 export FLAVOURS_DATA_DIRECTORY=$HOME/.config/flavours
+export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
