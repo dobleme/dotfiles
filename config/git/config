@@ -15,6 +15,7 @@
 [alias]
     pls = push --force-with-lease
     ap = add -p
+    ae = add -e
     st = status -s
     br = branch -vv
     co = checkout
