@@ -39,7 +39,7 @@ function chtl() {
 
 # git functions
 function abr() {
-    if [[ ! `git rev-parse --is-inside-work-tree 2>/dev/null` ]]; then
+    if ! git rev-parse --is-inside-work-tree 2>/dev/null ; then
         gum style \
             --border=rounded \
             --border-foreground=124 \
@@ -71,16 +71,14 @@ function abr() {
     done
 }
 
-# tmux function
+# tmux functions
 function tn() {
-    local session=$(pwd | sed 's/^\/.*\///g')
-    local exists=$(tmux list-sessions -F "#{session_name}" | grep $session)
-
+    local session=$(basename $PWD)
     if [[ $session == $USER ]]; then
         session="home"
     fi
 
-    if [[ -z $exists ]]; then
+    if ! tmux has-session -t $session 2>/dev/null ; then
         tmux new-session -c $PWD -s $session -d
     fi
 
