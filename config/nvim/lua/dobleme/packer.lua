@@ -34,4 +34,5 @@ return require('packer').startup(function(use)
 		}
 	}
     use 'jose-elias-alvarez/null-ls.nvim'
+    use 'folke/which-key.nvim'
 end)

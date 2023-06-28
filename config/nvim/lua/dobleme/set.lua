@@ -24,3 +24,5 @@ vim.opt.colorcolumn = "100"
 
 vim.g.mapleader = " "
 
+vim.o.timeout = true
+vim.o.timeoutlen = 500
