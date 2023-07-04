@@ -39,7 +39,7 @@ function chtl() {
 
 # git functions
 function abr() {
-    if ! git rev-parse --is-inside-work-tree 2>/dev/null ; then
+    if ! git rev-parse --is-inside-work-tree > /dev/null ; then
         gum style \
             --border=rounded \
             --border-foreground=124 \
@@ -62,7 +62,7 @@ function abr() {
         return 0
     fi
 
-    local selected_branches=($(gum choose --no-limit $local_branches))
+    local selected_branches=($(echo $local_branches | gum choose --no-limit))
     for branch in $selected_branches; do
         if [[ `gum choose --header="Archive branch ${branch}" yes no` == "yes" ]]; then
             git tag archive/$branch $branch
