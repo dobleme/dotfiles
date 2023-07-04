@@ -19,10 +19,13 @@
     st = status -s
     br = branch -vv
     co = checkout
+    wt = worktree
     cm = commit --verbose
     cmm = commit -m
     cmend = commit --verbose --amend
     cmendo = commit --amend --no-edit 
+    r = rebase
+    ri = rebase --interactive
     cpk = cherry-pick
     gr = grep
     wip = commit -m "[wip]"
