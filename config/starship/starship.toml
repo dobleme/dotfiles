@@ -31,6 +31,7 @@ repo_root_style = 'bold blue'
 disabled = false
 format = '[$branch]($style)'
 style = "bright-white"
+truncation_length = 20
 
 [git_status]
 disabled = false
