@@ -4,6 +4,18 @@ This is only my dotfiles. Nothing more.
 These are done alongside with [this ansible playbook](https://github.com/dobleme/home.local)
 that comission my local machines.
 
+## Setup
+
+### First generation
+
+```bash
+# Install nix
+sh <(curl -L https://nixos.org/nix/install) --daemon
+
+# Build and activate
+nix build https://github.com/dobleme/archive/master.tar.gz && ./result/activate
+```
+
 ## Resources
 A list of tools and useful resouces I used for this dotfiles.
 
