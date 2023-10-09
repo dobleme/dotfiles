@@ -17,6 +17,6 @@
             l = "ls -lha";
             ll = "ls -lh";
         };
-        syntaxHighlighting = true;
+        #syntaxHighlighting = true;
     };
 }
