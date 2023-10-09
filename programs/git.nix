@@ -25,8 +25,8 @@
             reseto = "!git fetch && git reset --hard FETCH_HEAD";
         };
         extraConfig = {
-            core = { editor = "nvim"; }
-            init = { defaultBranhc = "main"; };
+            core = { editor = "nvim"; };
+            init = { defaultBranch = "main"; };
             pull = { rebase = true; };
             push = { autoSetupRemote = true; };
             pager = { branch = false; };

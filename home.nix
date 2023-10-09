@@ -5,7 +5,7 @@
         ./programs/alacritty.nix
         ./programs/zsh.nix
         ./programs/tmux.nix
-    ]
+    ];
 
     home.packages = [
         pkgs.bat

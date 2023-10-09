@@ -9,10 +9,9 @@
         };
     };
 
-    outputs =  {}: let
+    outputs =  { self, nixpkgs, home-manager, ... }: let
         system = "x86_64-linux";
-    in {
-        dev = home-manager.lib.homeManagerConfiguration {
+        common = home-manager.lib.homeManagerConfiguration {
             pkgs = nixpkgs.legacyPackages.${system};
             modules = [
                 ./home.nix
@@ -25,5 +24,9 @@
                 }
             ];
         };
+
+    in {
+        defaultPackage.x86_64-linux = common.activationPackage;
+        homeConfigurations.dev = common;
     };
 }
