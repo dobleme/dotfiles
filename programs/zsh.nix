@@ -1,7 +1,6 @@
 {pkgs, ...}: {
     programs.zsh = {
         enable = true;
-
         autocd = true;
         shellAliases = {
             z = "source $HOME/.zshrc";
@@ -12,11 +11,10 @@
             "." = "cd ~";
             ".." = "cd ..";
             "..." = "cd ../..";
-            "--" = "-=cd -";
+            "-- -" = "cd -";
             ls = "ls --color";
             l = "ls -lha";
             ll = "ls -lh";
         };
-        #syntaxHighlighting = true;
     };
 }

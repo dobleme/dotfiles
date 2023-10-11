@@ -5,6 +5,7 @@
         ./programs/alacritty.nix
         ./programs/zsh.nix
         ./programs/tmux/tmux.nix
+        ./programs/starship.nix
     ];
 
     home.packages = [
@@ -15,7 +16,8 @@
         pkgs.tig
     ];
 
-    #targets.genericLinux.enable = true;
+    xdg.enable = true;
+    targets.genericLinux.enable = true;
 
     programs.home-manager.enable = true;
 }
