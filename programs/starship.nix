@@ -37,20 +37,20 @@
             git_status = {
                 disabled = false;
                 format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](white) ($ahead_behind )](yellow)";
-                conflicted = " \b";
-                untracked = " \b";
-                modified = " \b";
-                staged = " \b";
-                renamed = " \b";
-                deleted = " \b";
-                ahead =	"⇡$\{count\}";
+                conflicted = " \\b";
+                untracked = " \\b";
+                modified = " \\b";
+                staged = " \\b";
+                renamed = " \\b";
+                deleted = " \\b";
+                ahead = "⇡$\{count\}";
                 behind = "⇣$\{count\}";
                 diverged = "⇡$\{ahead_count\}⇣$\{behind_count\}";
                 up_to_date = "";
             };
             git_metrics = {
                 disabled = false;
-                format = "([\[](bright-black)([+$added](dimmed green))([-$deleted](dimmed red))[\]](bright-black) )";
+                format = "([\\[](bright-black)([+$added](dimmed green))([-$deleted](dimmed red))[\\]](bright-black) )";
             };
             git_state = {
                 disabled = false;
