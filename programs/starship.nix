@@ -35,6 +35,8 @@
                 truncation_length = 20;
             };
             git_status = {
+                # https://github.com/starship/starship/issues/4927
+                # https://github.com/starship/starship/discussions/1252#discussioncomment-692829
                 disabled = false;
                 format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](white) ($ahead_behind )](yellow)";
                 conflicted = " \\b";
