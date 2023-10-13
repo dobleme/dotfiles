@@ -1,10 +1,10 @@
 {pkgs, lib, ...}: {
-    programs.starshipt = {
+    programs.starship = {
         enable = true;
         enableZshIntegration = true;
         settings = {
             add_newline = false;
-            format = lib.concatString [
+            format = lib.concatStrings [
                 "$sudo"
                 "$directory"
                 "$git_branch"
@@ -43,9 +43,9 @@
                 staged = " \b";
                 renamed = " \b";
                 deleted = " \b";
-                ahead =	"⇡${count}";
-                behind = "⇣${count}";
-                diverged = "⇡${ahead_count}⇣${behind_count}";
+                ahead =	"⇡$\{count\}";
+                behind = "⇣$\{count\}";
+                diverged = "⇡$\{ahead_count\}⇣$\{behind_count\}";
                 up_to_date = "";
             };
             git_metrics = {
