@@ -8,8 +8,8 @@
                 "$sudo"
                 "$directory"
                 "$git_branch"
-                "$git_status"
                 "$\{custom.git_status_dirty\}"
+                "$git_status"
                 "$git_metrics"
                 "$git_state"
                 "$custom"
@@ -35,22 +35,22 @@
                 style = "bright-white";
                 truncation_length = 20;
             };
-            git_status = {
-                # https://github.com/starship/starship/issues/4927
-                # https://github.com/starship/starship/discussions/1252#discussioncomment-692829
-                disabled = false;
-                format = "[ ($ahead_behind )](yellow)";
-                ahead = "⇡$\{count\}";
-                behind = "⇣$\{count\}";
-                diverged = "⇡$\{ahead_count\}⇣$\{behind_count\}";
-                up_to_date = "";
-            };
             custom.git_status_dirty = {
                 when = "test -n \"$(git status --porcelain)\"";
                 symbol = "*";
                 style = "white";
                 format = "[$symbol]($style) ";
-                shell = ["bash", "--norc", "--noprofile"];
+                shell = ["bash" "--norc" "--noprofile"];
+            };
+            git_status = {
+                # https://github.com/starship/starship/issues/4927
+                # https://github.com/starship/starship/discussions/1252#discussioncomment-692829
+                disabled = false;
+                format = "[($ahead_behind )](yellow)";
+                ahead = "⇡$\{count\}";
+                behind = "⇣$\{count\}";
+                diverged = "⇡$\{ahead_count\}⇣$\{behind_count\}";
+                up_to_date = "";
             };
             git_metrics = {
                 disabled = false;
