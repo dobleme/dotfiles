@@ -78,6 +78,9 @@ selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
   save_to_clipboard: false
 
+shell:
+  program: "@shell@"
+
 cursor:
   style:
     shape: Block

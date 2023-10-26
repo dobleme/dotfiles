@@ -14,7 +14,7 @@
             cm = "commit --verbose";
             cmm = "commit -m";
             cmend = "commit --verbose --amend";
-            cmendo = "commit --amend --no-edit ";
+            cmendo = "commit --amend --no-edit";
             r = "rebase";
             ri = "rebase --interactive";
             cpk = "cherry-pick";

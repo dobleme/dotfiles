@@ -39,14 +39,14 @@
                 when = "test -n \"$(git status --porcelain)\"";
                 symbol = "*";
                 style = "white";
-                format = "[$symbol]($style) ";
+                format = "[$symbol]($style)";
                 shell = ["bash" "--norc" "--noprofile"];
             };
             git_status = {
                 # https://github.com/starship/starship/issues/4927
                 # https://github.com/starship/starship/discussions/1252#discussioncomment-692829
                 disabled = false;
-                format = "[($ahead_behind )](yellow)";
+                format = "[ ($ahead_behind )](yellow)";
                 ahead = "⇡$\{count\}";
                 behind = "⇣$\{count\}";
                 diverged = "⇡$\{ahead_count\}⇣$\{behind_count\}";
