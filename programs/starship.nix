@@ -6,6 +6,7 @@
             add_newline = false;
             format = lib.concatStrings [
                 "$sudo"
+                # "$nix_shell"
                 "$directory"
                 "$git_branch"
                 "$\{custom.git_status_dirty\}"
@@ -21,6 +22,10 @@
                 style = "bold bright-purple";
                 symbol = "Σ";
             };
+            # nix_shell = {
+            #     disabled = false;
+            #     format = "[$symbol$state]($style)";
+            # };
             directory = {
                 disabled = false;
                 style = "bold bright-cyan";
