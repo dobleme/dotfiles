@@ -6,6 +6,7 @@
         vimAlias = true;
         extraLuaConfig = ''
             ${builtins.readFile ./options.lua}
+            ${builtins.readFile ./treesitter.lua}
             ${builtins.readFile ./telescope.lua}
             ${builtins.readFile ./gitsigns.lua}
             ${builtins.readFile ./whichkey.lua}
@@ -14,9 +15,10 @@
             telescope-nvim
             gitsigns-nvim
             which-key-nvim
-            (nvim-treesitter.withPlugins (p: [ p.lua p.nix p.go p.python ]))
+            nvim-treesitter.withAllGrammars
         ];
         extraPackages = with pkgs; [
+            gcc
             xclip
         ];
     };
