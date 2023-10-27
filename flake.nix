@@ -11,9 +11,10 @@
             url = "github:guibou/nixGL";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        nix-colors.url = "github:misterio77/nix-colors";
     };
 
-    outputs =  { self, nixgl, nixpkgs, home-manager, ... }: let
+    outputs =  { self, nixpkgs, home-manager, nixgl, nix-colors, ... }: let
         system = "x86_64-linux";
         pkgs = import nixpkgs {
             inherit system;
@@ -32,6 +33,7 @@
                     };
                 }
             ];
+            extraSpecialArgs = { inherit nix-colors; };
         };
 
     in {
