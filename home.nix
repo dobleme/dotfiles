@@ -23,7 +23,11 @@ in {
         ./programs/starship.nix
     ];
 
-    colorScheme = nix-colors.lib.schemeFromYAML "delta" (builtins.readFile ./colors/delta.yml);
+    # colorScheme = nix-colors.colorSchemes.lime;
+    colorScheme = nix-colors.colorSchemes.pico;
+    # colorScheme = nix-colors.colorSchemes.pandora;
+    # colorScheme = nix-colors.colorSchemes.pop;
+    # colorScheme = nix-colors.colorSchemes.purpledream;
 
     home.packages = [
         pkgs.bat
@@ -54,7 +58,7 @@ in {
             window = {
                 padding = { x = 8; y = 8; };
                 decorations = "None";
-                opacity = 0.99;
+                opacity = 0.95;
                 startup_mode = "Maximized";
                 dynamic_title = true;
                 decorations_theme_variant = "None";
