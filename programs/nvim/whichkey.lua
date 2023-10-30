@@ -10,7 +10,7 @@ wk.register({
         c = 'Find incoming calls',
         o = 'Find outgoing calls',
         r = 'Find symbol references',
-        i = 'Find/go symbol implementatios',
+        i = 'Find/go symbol implementations',
         d = 'Find/go symbol definitions',
     },
     ['<leader>v'] = {
