@@ -41,6 +41,13 @@ in {
         pkgs.nixgl.nixGLIntel
         # (nixGL pkgs.spotify)
         # (nixGL pkgs.vivaldi)
+
+        # Scripts
+        (pkgs.buildEnv {
+            name = "my-scripts";
+            paths = [ ./bin ];
+            pathsToLink = [ "/bin" ];
+        })
     ];
 
     programs.fzf = {

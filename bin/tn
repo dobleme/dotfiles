@@ -1,0 +1,16 @@
+#!/usr/bin/env zsh
+
+local session=$(basename $PWD)
+if [[ $session == $USER ]]; then
+    session="home"
+fi
+
+if ! tmux has-session -t $session 2>/dev/null ; then
+    tmux new-session -c $PWD -s $session -d
+fi
+
+if [[ -z $TMUX ]]; then
+    tmux attach-session -t $session
+else
+    tmux switch-client -t $session
+fi

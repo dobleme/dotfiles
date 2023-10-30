@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+local session=$(tmux list-session -F "#{session_name}" | gum choose)
+if [[ -z $TMUX ]]; then
+    tmux attach-session -t $session
+else
+    tmux switch-client -t $session
+fi
