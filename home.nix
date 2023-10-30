@@ -1,14 +1,14 @@
 { pkgs, lib, config, nix-colors, ... }: let
     nixGL = pkg: pkgs.runCommand "${pkg.name}-nixgl-wrapper" {} ''
-	mkdir $out
-	ln -s ${pkg}/* $out
-	rm $out/bin
-    	mkdir $out/bin
-    	for bin in ${pkg}/bin/*; do
-     	    wrapped_bin=$out/bin/$(basename $bin)
-     	    echo "exec ${lib.getExe pkgs.nixgl.nixGLIntel} $bin \$@" > $wrapped_bin
+	    mkdir $out
+	    ln -s ${pkg}/* $out
+	    rm $out/bin
+        mkdir $out/bin
+        for bin in ${pkg}/bin/*; do
+            wrapped_bin=$out/bin/$(basename $bin)
+            echo "exec ${lib.getExe pkgs.nixgl.nixGLIntel} $bin \$@" > $wrapped_bin
             chmod +x $wrapped_bin
-	done
+        done
     '';
 in {
     xdg.enable = true;
