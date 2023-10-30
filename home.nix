@@ -24,10 +24,10 @@ in {
     ];
 
     # colorScheme = nix-colors.colorSchemes.lime;
-    colorScheme = nix-colors.colorSchemes.pico;
+    # colorScheme = nix-colors.colorSchemes.pico;
     # colorScheme = nix-colors.colorSchemes.pandora;
     # colorScheme = nix-colors.colorSchemes.pop;
-    # colorScheme = nix-colors.colorSchemes.purpledream;
+    colorScheme = nix-colors.colorSchemes.purpledream;
 
     home.packages = [
         pkgs.bat
