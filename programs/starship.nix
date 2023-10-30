@@ -1,4 +1,4 @@
-{pkgs, lib, ...}: {
+{ pkgs, lib, config, ... }: {
     programs.starship = {
         enable = true;
         enableZshIntegration = true;
@@ -18,8 +18,8 @@
             ];
             sudo = {
                 disabled = false;
-                format = "[$symbol ]($style)";
-                style = "bold bright-purple";
+                format = "[\\[](#${config.colorScheme.colors.base02})[$symbol]($style)[\\]](#${config.colorScheme.colors.base02}) ";
+                style = "bold dimmed red";
                 symbol = "Σ";
             };
             # nix_shell = {
@@ -28,22 +28,21 @@
             # };
             directory = {
                 disabled = false;
-                style = "bold bright-cyan";
+                style = "bold blue";
+                repo_root_style = "bold #${config.colorScheme.colors.base07}";
                 truncation_length = 2;
-                truncation_symbol = "./";
                 home_symbol = "~";
-                repo_root_style = "bold blue";
             };
             git_branch = {
                 disabled = false;
                 format = "[$branch]($style)";
-                style = "bright-white";
+                style = "#${config.colorScheme.colors.base07}";
                 truncation_length = 20;
             };
             custom.git_status_dirty = {
                 when = "test -n \"$(git status --porcelain)\"";
                 symbol = "*";
-                style = "white";
+                style = "#${config.colorScheme.colors.base07}";
                 format = "[$symbol]($style)";
                 shell = ["bash" "--norc" "--noprofile"];
             };
@@ -51,7 +50,7 @@
                 # https://github.com/starship/starship/issues/4927
                 # https://github.com/starship/starship/discussions/1252#discussioncomment-692829
                 disabled = false;
-                format = "[ ($ahead_behind )](yellow)";
+                format = "[ ($ahead_behind )](dimmed yellow)";
                 ahead = "⇡$\{count\}";
                 behind = "⇣$\{count\}";
                 diverged = "⇡$\{ahead_count\}⇣$\{behind_count\}";
@@ -59,14 +58,14 @@
             };
             git_metrics = {
                 disabled = false;
-                format = "([\\[](bright-black)([+$added](dimmed green))([-$deleted](dimmed red))[\\]](bright-black) )";
+                format = "([\\[](#${config.colorScheme.colors.base02})([+$added](dimmed green))([-$deleted](dimmed red))[\\]](#${config.colorScheme.colors.base02}) )";
             };
             git_state = {
                 disabled = false;
             };
             character = {
-                success_symbol = "[](bright-green)";
-                error_symbol = "[](bright-red)";
+                success_symbol = "[](green)";
+                error_symbol = "[](red)";
             };
         };
     };
