@@ -29,7 +29,7 @@
             directory = {
                 disabled = false;
                 style = "bold blue";
-                repo_root_style = "bold #${config.colorScheme.colors.base07}";
+                repo_root_style = "bold cyan";
                 truncation_length = 2;
                 home_symbol = "~";
             };
@@ -50,7 +50,7 @@
                 # https://github.com/starship/starship/issues/4927
                 # https://github.com/starship/starship/discussions/1252#discussioncomment-692829
                 disabled = false;
-                format = "[ ($ahead_behind )](dimmed yellow)";
+                format = "[ ($ahead_behind )](yellow)";
                 ahead = "⇡$\{count\}";
                 behind = "⇣$\{count\}";
                 diverged = "⇡$\{ahead_count\}⇣$\{behind_count\}";
