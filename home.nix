@@ -62,6 +62,7 @@ in {
         enable = true;
         package = nixGL pkgs.alacritty;
         settings = {
+            env = { TERM = "xterm-256color"; };
             window = {
                 padding = { x = 8; y = 8; };
                 decorations = "None";
@@ -154,11 +155,7 @@ in {
     programs.tmux.enable = true;
 
     xdg.configFile = {
-        "tmux/tmux.conf".source = pkgs.substituteAll {
-            name = "tmux.conf";
-            src = ./programs/tmux.conf;
-            shell = "${pkgs.zsh}/bin/zsh";
-        };
+        "tmux/tmux.conf".source = ./programs/tmux.conf;
     };
 
     programs.home-manager.enable = true;
