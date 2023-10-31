@@ -29,14 +29,6 @@ in {
     # colorScheme = nix-colors.colorSchemes.pop;
     colorScheme = nix-colors.colorSchemes.purpledream;
 
-    home.sessionVariables = {
-        FZF_DEFAULT_OPTS = with config.colorScheme.colors; ''
-            --color=bg+:#${base01},bg:#${base00},spinner:#${base0C},hl:#${base0D},\
-            fg:#${base04},header:#${base0D},info:#${base0A},pointer:#${base0C},\
-            marker:#${base0C},fg+:#${base06},prompt:#${base0A},hl+:#${base0D}
-        '';
-    };
-
     home.packages = [
         pkgs.ripgrep
         pkgs.btop
@@ -65,9 +57,23 @@ in {
     programs.fzf = {
         enable = true;
         enableZshIntegration = true;
-        # tmux = {
-        #     enableShellIntegration = true;
-        # };
+        tmux = {
+            enableShellIntegration = true;
+            shellIntegrationOptions = [
+                "-p 65%,45%"
+            ];
+        };
+        colors = with config.colorScheme.colors; {
+            bg = "#${base00}"; "bg+" = "#${base01}";
+            fg = "#${base04}"; "fg+" = "#${base06}";
+            hl = "#${base0D}"; "hl+" = "#${base0D}";
+            spinner = "#${base0C}";
+            header = "#${base0D}";
+            info = "#${base0A}";
+            pointer = "#${base0C}";
+            marker = "#${base0C}";
+            prompt = "#${base0A}";
+        };
     };
 
     programs.alacritty = {
