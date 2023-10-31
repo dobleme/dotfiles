@@ -17,9 +17,10 @@ in {
 
     imports = [
         nix-colors.homeManagerModules.default
-        ./programs/git.nix
-        ./programs/nvim/nvim.nix
         ./programs/zsh.nix
+        ./programs/nvim/nvim.nix
+        ./programs/tmux.nix
+        ./programs/git.nix
         ./programs/starship.nix
     ];
 
@@ -168,12 +169,6 @@ in {
                 ];
             };
         };
-    };
-
-    programs.tmux.enable = true;
-
-    xdg.configFile = {
-        "tmux/tmux.conf".source = ./programs/tmux.conf;
     };
 
     programs.home-manager.enable = true;
