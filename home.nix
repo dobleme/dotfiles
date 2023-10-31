@@ -24,10 +24,6 @@ in {
         ./programs/starship.nix
     ];
 
-    # colorScheme = nix-colors.colorSchemes.lime;
-    # colorScheme = nix-colors.colorSchemes.pico;
-    # colorScheme = nix-colors.colorSchemes.pandora;
-    # colorScheme = nix-colors.colorSchemes.pop;
     colorScheme = nix-colors.colorSchemes.purpledream;
 
     home.packages = with pkgs; [
