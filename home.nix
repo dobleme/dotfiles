@@ -30,15 +30,17 @@ in {
     # colorScheme = nix-colors.colorSchemes.pop;
     colorScheme = nix-colors.colorSchemes.purpledream;
 
-    home.packages = [
-        pkgs.ripgrep
-        pkgs.btop
-        pkgs.iftop
-        pkgs.tig
-        (pkgs.nerdfonts.override { fonts = [ "CascadiaCode" ]; })
+    home.packages = with pkgs; [
+        ripgrep
+        fd
+        btop
+        iftop
+        tig
+        xclip
+        (nerdfonts.override { fonts = [ "CascadiaCode" ]; })
 
         # GUI
-        pkgs.nixgl.nixGLIntel
+        nixgl.nixGLIntel
         # (nixGL pkgs.spotify)
         # (nixGL pkgs.vivaldi)
 

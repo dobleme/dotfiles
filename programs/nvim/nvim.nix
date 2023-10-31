@@ -25,11 +25,12 @@ in {
             telescope-nvim
             gitsigns-nvim
             which-key-nvim
+            vim-nix
             nvim-treesitter.withAllGrammars
         ];
         extraPackages = with pkgs; [
+            lua-language-server
             gcc
-            xclip
         ];
     };
 }
