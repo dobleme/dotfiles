@@ -29,8 +29,15 @@ in {
     # colorScheme = nix-colors.colorSchemes.pop;
     colorScheme = nix-colors.colorSchemes.purpledream;
 
+    home.sessionVariables = {
+        FZF_DEFAULT_OPTS = with config.colorScheme.colors; ''
+            --color=bg+:#${base01},bg:#${base00},spinner:#${base0C},hl:#${base0D},\
+            fg:#${base04},header:#${base0D},info:#${base0A},pointer:#${base0C},\
+            marker:#${base0C},fg+:#${base06},prompt:#${base0A},hl+:#${base0D}
+        '';
+    };
+
     home.packages = [
-        pkgs.bat
         pkgs.ripgrep
         pkgs.btop
         pkgs.iftop
@@ -43,12 +50,17 @@ in {
         # (nixGL pkgs.vivaldi)
 
         # Scripts
-        (pkgs.buildEnv {
-            name = "my-scripts";
-            paths = [ ./bin ];
-            pathsToLink = [ "/bin" ];
-        })
+        # (pkgs.buildEnv {
+        #     name = "my-scripts";
+        #     paths = [ ./bin ];
+        #     pathsToLink = [ "/bin" ];
+        # })
     ];
+
+    programs.bat = {
+        enable = true;
+        config = { theme = "base16"; };
+    };
 
     programs.fzf = {
         enable = true;
