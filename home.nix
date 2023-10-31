@@ -1,8 +1,8 @@
 { pkgs, lib, config, nix-colors, ... }: let
     nixGL = pkg: pkgs.runCommand "${pkg.name}-nixgl-wrapper" {} ''
-	    mkdir $out
-	    ln -s ${pkg}/* $out
-	    rm $out/bin
+        mkdir $out
+        ln -s ${pkg}/* $out
+        rm $out/bin
         mkdir $out/bin
         for bin in ${pkg}/bin/*; do
             wrapped_bin=$out/bin/$(basename $bin)
