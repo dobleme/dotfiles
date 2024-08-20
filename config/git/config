@@ -1,6 +1,7 @@
 [user]
     name = Lluc Martorell
     email = dev@lluc.me
+    signingkey = BBC97A221F861174
 [core]
     editor = nvim
     excludesfile = ~/.config/git/ignore
