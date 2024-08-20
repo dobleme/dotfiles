@@ -9,6 +9,7 @@
 [pull]
     rebase = true
 [push]
+    default = upstream
     autoSetupRemote = true
 [pager]
     branch = false
@@ -35,3 +36,5 @@
 
 [includeIf "gitdir:~/dev/work/"]
     path = ~/.config/git/work
+[commit]
+	gpgsign = true
