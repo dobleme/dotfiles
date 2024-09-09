@@ -12,7 +12,7 @@
     historyLimit = 10000;
     mouse = true;
     clock24 = true;
-    extraConfig = with config.colorScheme.colors; ''
+    extraConfig = with config.colorScheme.palette; ''
       set -ag terminal-overrides ',xterm-256color:RGB'
       set -g focus-events on
       bind r source-file ~/.config/tmux/tmux.conf \; display-message "Reloading config..."

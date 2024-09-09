@@ -1,11 +1,15 @@
 {pkgs, ...}: {
     programs.zsh = {
         enable = true;
+        enableCompletion = true;
+        autosuggestion.enable = true;
+        syntaxHighlighting.enable = true;
+        dotDir = ".config/zsh";
         autocd = true;
         shellAliases = {
             z = "source $HOME/.zshrc";
             s = "sudo";
-            v = "vim";
+            v = "vi";
             g = "git";
             d = "docker";
             "." = "cd ~";

@@ -1,11 +1,5 @@
-{ pkgs, lib, config, ...}: let
-    colors = with config.colorScheme.colors; pkgs.substituteAll {
-        src = ./colors.lua;
-        base00 = base00; base01 = base01; base02 = base02; base03 = base03;
-        base04 = base04; base05 = base05; base06 = base06; base07 = base07;
-        base08 = base08; base09 = base09; base0A = base0A; base0B = base0B;
-        base0C = base0C; base0D = base0D; base0E = base0E; base0F = base0F;
-    };
+{ pkgs, config, nix-colors, ...}: let
+      nix-colors-lib = nix-colors.lib.contrib { inherit pkgs; };
 in {
     programs.neovim = {
         enable = true;
@@ -14,19 +8,32 @@ in {
         vimAlias = true;
         extraLuaConfig = ''
             ${builtins.readFile ./options.lua}
-            ${builtins.readFile colors}
+            vim.cmd.colorscheme "nix-${config.colorScheme.slug}"
+
             ${builtins.readFile ./treesitter.lua}
             ${builtins.readFile ./telescope.lua}
             ${builtins.readFile ./gitsigns.lua}
             ${builtins.readFile ./whichkey.lua}
+            ${builtins.readFile ./cmp.lua}
         '';
         plugins = with pkgs.vimPlugins; [
-            nvim-base16
+            (nix-colors-lib.vimThemeFromScheme { scheme = config.colorScheme; })
             telescope-nvim
             gitsigns-nvim
             which-key-nvim
             vim-nix
             nvim-treesitter.withAllGrammars
+
+            # cmp
+            cmp-buffer
+            cmp-path
+            cmp-cmdline
+            nvim-cmp
+
+            # vsnip
+            cmp-vsnip
+            vim-vsnip
+            friendly-snippets
         ];
         extraPackages = with pkgs; [
             lua-language-server

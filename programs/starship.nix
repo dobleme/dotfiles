@@ -1,4 +1,6 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, lib, config, ... }: let
+  palette = config.colorScheme.palette;
+in {
     programs.starship = {
         enable = true;
         enableZshIntegration = true;
@@ -18,7 +20,7 @@
             ];
             sudo = {
                 disabled = false;
-                format = "[\\[](#${config.colorScheme.colors.base02})[$symbol]($style)[\\]](#${config.colorScheme.colors.base02}) ";
+                format = "[\\[](#${palette.base02})[$symbol]($style)[\\]](#${palette.base02}) ";
                 style = "bold dimmed red";
                 symbol = "Σ";
             };
@@ -36,13 +38,13 @@
             git_branch = {
                 disabled = false;
                 format = "[$branch]($style)";
-                style = "#${config.colorScheme.colors.base07}";
+                style = "#${palette.base07}";
                 truncation_length = 20;
             };
             custom.git_status_dirty = {
                 when = "test -n \"$(git status --porcelain)\"";
                 symbol = "*";
-                style = "#${config.colorScheme.colors.base07}";
+                style = "#${palette.base07}";
                 format = "[$symbol]($style)";
                 shell = ["bash" "--norc" "--noprofile"];
             };
@@ -58,7 +60,7 @@
             };
             git_metrics = {
                 disabled = false;
-                format = "([\\[](#${config.colorScheme.colors.base02})([+$added](dimmed green))([-$deleted](dimmed red))[\\]](#${config.colorScheme.colors.base02}) )";
+                format = "([\\[](#${palette.base02})([+$added](dimmed green))([-$deleted](dimmed red))[\\]](#${palette.base02}) )";
             };
             git_state = {
                 disabled = false;

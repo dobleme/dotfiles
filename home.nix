@@ -24,10 +24,22 @@ in {
         ./programs/starship.nix
     ];
 
-    colorScheme = nix-colors.colorSchemes.purpledream;
+    # Check available schemes at https://tinted-theming.github.io/base16-gallery
+    colorScheme = nix-colors.colorSchemes.ayu-dark;
+
+    home.file = {
+      ".local/bin"= {
+        source = ./scripts;
+        recursive = true;
+      };
+    };
 
     home.packages = with pkgs; [
         ripgrep
+        gum
+        csvdiff
+        xsv
+        jaq
         fd
         btop
         iftop
@@ -39,14 +51,12 @@ in {
         nixgl.nixGLIntel
         # (nixGL pkgs.spotify)
         # (nixGL pkgs.vivaldi)
-
-        # Scripts
-        # (pkgs.buildEnv {
-        #     name = "my-scripts";
-        #     paths = [ ./bin ];
-        #     pathsToLink = [ "/bin" ];
-        # })
     ];
+
+    programs.go = {
+      enable = true;
+      goPath = ".local/go";
+    };
 
     programs.bat = {
         enable = true;
@@ -62,7 +72,7 @@ in {
                 "-p 65%,45%"
             ];
         };
-        colors = with config.colorScheme.colors; {
+        colors = with config.colorScheme.palette; {
             bg = "#${base00}"; "bg+" = "#${base01}";
             fg = "#${base04}"; "fg+" = "#${base06}";
             hl = "#${base0D}"; "hl+" = "#${base0D}";
@@ -127,8 +137,8 @@ in {
             };
             live_config_reload = true;
             working_directory = "None";
-            draw_bold_text_with_bright_colors = false;
-            colors = with config.colorScheme.colors; {
+            colors = with config.colorScheme.palette; {
+                draw_bold_text_with_bright_colors = false;
                 primary = {
                     background = "0x${base00}";
                     foreground = "0x${base05}";

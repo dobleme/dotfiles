@@ -2,7 +2,7 @@
     programs.git = {
         enable = true;
         userName = "Lluc Martorell";
-        userEmail = "dev@lluc.me";
+        userEmail = "7830854+dobleme@users.noreply.github.com";
         aliases = {
             pls = "push --force-with-lease";
             ap = "add -p";
@@ -25,11 +25,14 @@
             reseto = "!git fetch && git reset --hard FETCH_HEAD";
         };
         extraConfig = {
-            core = { editor = "nvim"; };
+            user = { signingKey = "~/.ssh/id_ed25519.pub"; };
+            gpg = { format = "ssh"; };
+            core = { editor = "vi"; };
             init = { defaultBranch = "main"; };
             pull = { rebase = true; };
             push = { autoSetupRemote = true; };
             pager = { branch = false; };
+            commit = { gpgSign = true; };
         };
         ignores = [
             ".wt"
