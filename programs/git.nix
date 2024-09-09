@@ -25,8 +25,7 @@
             reseto = "!git fetch && git reset --hard FETCH_HEAD";
         };
         extraConfig = {
-            user = { signingKey = "~/.ssh/id_ed25519.pub"; };
-            gpg = { format = "ssh"; };
+            user = { signingKey = "CBEE33EBABE95308"; };
             core = { editor = "vi"; };
             init = { defaultBranch = "main"; };
             pull = { rebase = true; };
