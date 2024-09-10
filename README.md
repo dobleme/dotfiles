@@ -22,4 +22,4 @@ Setup zsh shell manually with
 - [ ] neovim
 - [ ] tmux
 - [ ] zsh
-- [ ] starship
+- [x] starship

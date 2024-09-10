@@ -8,7 +8,6 @@ in {
             add_newline = false;
             format = lib.concatStrings [
                 "$sudo"
-                # "$nix_shell"
                 "$directory"
                 "$git_branch"
                 "$\{custom.git_status_dirty\}"
@@ -20,14 +19,10 @@ in {
             ];
             sudo = {
                 disabled = false;
-                format = "[\\[](#${palette.base02})[$symbol]($style)[\\]](#${palette.base02}) ";
-                style = "bold dimmed red";
-                symbol = "Σ";
+                format = "[\\[](#${palette.base02})[$symbol]($style)[\\]](#${palette.base02})";
+                style = "bold red";
+                symbol = "󰙨";
             };
-            # nix_shell = {
-            #     disabled = false;
-            #     format = "[$symbol$state]($style)";
-            # };
             directory = {
                 disabled = false;
                 style = "bold blue";
