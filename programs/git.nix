@@ -23,24 +23,33 @@
             wipa = "!git add -A && git commit -m '[wip]'";
             unwip = "!git --no-pager log -n 1 | grep '\\[wip\\]' && git reset @^1";
             reseto = "!git fetch && git reset --hard FETCH_HEAD";
+            patch = "!git --no-pager diff --no-ext-diff";
+        };
+        signing = {
+            signByDefault = true;
+            key = "CBEE33EBABE95308";
         };
         extraConfig = {
-            user = { signingKey = "CBEE33EBABE95308"; };
             core = { editor = "vi"; };
             init = { defaultBranch = "main"; };
             pull = { rebase = true; };
             push = { autoSetupRemote = true; };
             pager = { branch = false; };
-            commit = { gpgSign = true; };
         };
         ignores = [
             ".wt"
         ];
         includes = [
             {
-                path = "~/dev/work";
-                condition = ".config/git/work";
+                condition = "gitdir:~/dev/work/";
+                path = "~/.config/git/work";
             }
         ];
+        difftastic = {
+            enable = true;
+            background = "dark";
+            color = "always";
+            display = "inline";
+        };
     };
 }

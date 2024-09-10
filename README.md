@@ -16,3 +16,10 @@ nix build https://github.com/dobleme/archive/master.tar.gz && ./result/activate
 ```
 
 Setup zsh shell manually with
+
+# TODO
+- [x] git
+- [ ] neovim
+- [ ] tmux
+- [ ] zsh
+- [ ] starship
