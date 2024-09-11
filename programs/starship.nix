@@ -63,6 +63,7 @@ in {
             character = {
                 success_symbol = "[](green)";
                 error_symbol = "[](red)";
+                vimcmd_symbol = "[](purple)";
             };
         };
     };

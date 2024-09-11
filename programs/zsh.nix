@@ -1,13 +1,10 @@
 {pkgs, ...}: {
     programs.zsh = {
         enable = true;
-        enableCompletion = true;
-        autosuggestion.enable = true;
-        syntaxHighlighting.enable = true;
-        dotDir = ".config/zsh";
         autocd = true;
+        dotDir = ".config/zsh";
         shellAliases = {
-            z = "source $HOME/.zshrc";
+            z = "source ~/config/zsh/.zshrc";
             s = "sudo";
             v = "vi";
             g = "git";
@@ -20,5 +17,8 @@
             l = "ls -lha";
             ll = "ls -lh";
         };
+        enableCompletion = true;
+        syntaxHighlighting.enable = true;
+        autosuggestion.enable = true;
     };
 }
