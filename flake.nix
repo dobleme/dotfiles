@@ -21,23 +21,23 @@
             overlays = [ nixgl.overlay ];
             config = { allowUnfree = true; };
         };
-        common = home-manager.lib.homeManagerConfiguration {
+        common = username: home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
             modules = [
                 ./home.nix
                 {
                     home = {
-                        homeDirectory = "/home/dev";
-                        username = "dev";
+                        homeDirectory = "/home/${username}";
+                        username = username;
                         stateVersion = "23.11";
                     };
                 }
             ];
             extraSpecialArgs = { inherit nix-colors; };
-        };
-
+    };
     in {
-        defaultPackage.x86_64-linux = common.activationPackage;
-        homeConfigurations.dev = common;
+      defaultPackage.x86_64-linux = (common "dev").activationPackage;
+      homeConfigurations.dev = common "dev";
+      homeConfigurations.dobleme = common "dobleme";
     };
 }

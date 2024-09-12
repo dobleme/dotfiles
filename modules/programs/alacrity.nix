@@ -1,8 +1,9 @@
-{pkgs, config, ...}: {
-  
+{pkgs, lib, config, ...}: let
+    nixGL = import ./../nixGL.nix { inherit pkgs lib; };
+in {
     programs.alacritty = {
         enable = true;
-        package = config.caca pkgs.alacritty;
+        package = nixGL pkgs.alacritty;
         settings = {
             env = { TERM = "xterm-256color"; };
             window = {
