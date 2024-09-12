@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+    home.programs = [pkgs.tig];
     programs.git = {
         enable = true;
         userName = "Lluc Martorell";

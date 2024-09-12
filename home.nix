@@ -11,18 +11,19 @@
         done
     '';
 in {
-    xdg.enable = true;
-    targets.genericLinux.enable = true;
-    fonts.fontconfig.enable = true;
+  xdg.enable = true;
+  targets.genericLinux.enable = true;
+  fonts.fontconfig.enable = true;
 
-    imports = [
-        nix-colors.homeManagerModules.default
-        ./programs/zsh.nix
-        ./programs/nvim/nvim.nix
-        ./programs/tmux.nix
-        ./programs/git.nix
-        ./programs/starship.nix
-    ];
+  imports = [
+    nix-colors.homeManagerModules.default
+    ./programs/zsh.nix
+    ./programs/nvim/nvim.nix
+    ./programs/tmux.nix
+    ./programs/git.nix
+    ./programs/starship.nix
+    ./programs/utils.nix
+  ];
 
     # Check available schemes at https://tinted-theming.github.io/base16-gallery
     colorScheme = nix-colors.colorSchemes.ayu-dark;
@@ -35,15 +36,9 @@ in {
     };
 
     home.packages = with pkgs; [
-        ripgrep
         gum
-        csvdiff
-        xsv
-        jaq
-        fd
         btop
         iftop
-        tig
         xclip
         (nerdfonts.override { fonts = [ "CascadiaCode" ]; })
 
@@ -52,38 +47,6 @@ in {
         # (nixGL pkgs.spotify)
         # (nixGL pkgs.vivaldi)
     ];
-
-    programs.go = {
-      enable = true;
-      goPath = ".local/go";
-    };
-
-    programs.bat = {
-        enable = true;
-        config = { theme = "base16"; }; # This is not base 16 theme
-    };
-
-    programs.fzf = {
-        enable = true;
-        enableZshIntegration = true;
-        tmux = {
-            enableShellIntegration = true;
-            shellIntegrationOptions = [
-                "-p 65%,45%"
-            ];
-        };
-        colors = with config.colorScheme.palette; {
-            bg = "#${base00}"; "bg+" = "#${base01}";
-            fg = "#${base04}"; "fg+" = "#${base06}";
-            hl = "#${base0D}"; "hl+" = "#${base0D}";
-            spinner = "#${base0C}";
-            header = "#${base0D}";
-            info = "#${base0A}";
-            pointer = "#${base0C}";
-            marker = "#${base0C}";
-            prompt = "#${base0A}";
-        };
-    };
 
     programs.alacritty = {
         enable = true;
