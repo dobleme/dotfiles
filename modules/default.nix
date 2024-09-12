@@ -1,6 +1,6 @@
 {
-    imports = [
-      ./programs/zsh.nix
+  imports = [
+    ./programs/zsh.nix
     ./programs/alacrity.nix
     ./programs/nvim/nvim.nix
     ./programs/tmux.nix
