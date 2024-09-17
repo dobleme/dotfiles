@@ -26,24 +26,11 @@ require("which-key").setup({
     icons = { mappings = false },
 })
 require("which-key").add({
-    { "<leader>pv", desc = "Open netrw" },
-    { "<leader>y", desc = "Copy to xclip" },
-    { "<leader>f", group = "telescope" },
-    { "<leader>fb", desc = "Find current buffers" },
-    { "<leader>fc", desc = "Find incoming calls" },
-    { "<leader>fd", desc = "Find/go symbol definitions" },
-    { "<leader>fe", desc = "Find diagnostics" },
-    { "<leader>ff", desc = "Find files" },
-    { "<leader>fg", desc = "Live grep in workspace" },
-    { "<leader>fi", desc = "Find/go symbol implementations" },
-    { "<leader>fo", desc = "Find outgoing calls" },
-    { "<leader>fq", desc = "Find quickfix list" },
-    { "<leader>fr", desc = "Find symbol references" },
-    { "<leader>fs", desc = "Find document symbols" },
-    { "<leader>fS", desc = "Find workspace symbols" },
+    { "<leader>pv", desc = "open netrw" },
+    { "<leader>y", desc = "copy to xclip" },
     { "<leader>v", group = "lsp/diagnostics" },
-    { "<leader>vd", desc = "Open diagnostic float" },
-    { "<leader>vj", desc = "Goto next diagnostic" },
+    { "<leader>vd", desc = "open diagnostic float" },
+    { "<leader>vj", desc = "goto next diagnostic" },
     --{ "<leader>vc", desc = "Code action" },
     --{ "<leader>vf", desc = "Format document" },
     --{ "<leader>vh", desc = "Signature help symbol" },
@@ -55,19 +42,36 @@ local ts = require("telescope.builtin")
 local th = require("telescope.themes")
 local ivyTh = th.get_ivy({ layout_config = { height = 20 } })
 local dropdownTh = th.get_dropdown()
-vim.keymap.set("n", "<leader>fb", function() ts.buffers(dropdownTh) end)
-vim.keymap.set("n", "<leader>fc", function() ts.lsp_incoming_calls(ivyTh) end)
-vim.keymap.set("n", "<leader>fd", function() ts.lsp_definitions(ivyTh) end)
-vim.keymap.set("n", "<leader>fe", function() ts.diagnostics(theme) end)
-vim.keymap.set("n", "<leader>ff", function() ts.find_files({ follow = true }) end)
-vim.keymap.set("n", "<leader>fg", function() ts.live_grep(dropdownTh) end)
-vim.keymap.set("n", "<leader>fi", function() ts.lsp_implementations(ivyTh) end)
-vim.keymap.set("n", "<leader>fo", function() ts.lsp_outgoing_calls(ivyTh) end)
-vim.keymap.set("n", "<leader>fq", function() ts.quickfix(dropdownTh) end)
-vim.keymap.set("n", "<leader>fr", function() ts.lsp_references(ivyTh) end)
-vim.keymap.set("n", "<leader>fs", function() ts.lsp_document_symbols(dropdownTh) end)
-vim.keymap.set("n", "<leader>fS", function() ts.lsp_workspace_symbols(dropdownTh) end)
+require("which-key").add({
+    { "<leader>f", group = "telescope" },
+    { "<leader>fb", function() ts.buffers(dropdownTh) end, desc = "find current buffers" },
+    { "<leader>fc", function() ts.lsp_incoming_calls(ivyTh) end, desc = "find incoming calls" },
+    { "<leader>fd", function() ts.lsp_definitions(ivyTh) end, desc = "find/go symbol definitions" },
+    { "<leader>fe", function() ts.diagnostics(theme) end, desc = "find diagnostics" },
+    { "<leader>ff", function() ts.find_files({ follow = true }) end, desc = "find files" },
+    { "<leader>fg", function() ts.live_grep(dropdownTh) end, desc = "live grep in workspace" },
+    { "<leader>fi", function() ts.lsp_implementations(ivyTh) end, desc = "find/go symbol implementations" },
+    { "<leader>fo", function() ts.lsp_outgoing_calls(ivyTh) end, desc = "find outgoing calls" },
+    { "<leader>fq", function() ts.quickfix(dropdownTh) end, desc = "find quickfix list" },
+    { "<leader>fr", function() ts.lsp_references(ivyTh) end, desc = "find symbol references" },
+    { "<leader>fs", function() ts.lsp_document_symbols(dropdownTh) end, desc = "find document symbols" },
+    { "<leader>fS", function() ts.lsp_workspace_symbols(dropdownTh) end, desc = "find workspace symbols" },
+})
 
+local f = require("flash")
+f.setup({ modes = { search = { enabled = true} } })
+require("which-key").add({
+    { "<leader>j", f.jump, desc = "flash jump" },
+    { "<leader>s", f.treesitter , desc = "flash treesitter" },
+})
+
+local function macro_recording()
+	local mode = require("noice").api.statusline.mode.get()
+	if mode then
+		return string.match(mode, "^recording @.*") or ""
+	end
+	return ""
+end
 require("lualine").setup({
     options = {
         theme = {
@@ -95,7 +99,7 @@ require("lualine").setup({
         lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
         lualine_b = { "filename", { "branch", icon = "" } },
         lualine_c = { "diff", "diagnostics" },
-        lualine_x = {},
+        lualine_x = { macro_recording },
         lualine_y = { "filetype",  "progress" },
         lualine_z = { { "location", separator = { right = "" }, left_padding = 2 } }
     },

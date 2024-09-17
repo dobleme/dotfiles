@@ -44,6 +44,7 @@ in {
       lualine-nvim
       nui-nvim
       noice-nvim
+      flash-nvim
 
       #vim-nix
  
