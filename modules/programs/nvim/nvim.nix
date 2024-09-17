@@ -42,6 +42,8 @@ in {
       telescope-nvim
       which-key-nvim
       lualine-nvim
+      nui-nvim
+      noice-nvim
 
       #vim-nix
  
