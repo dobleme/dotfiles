@@ -25,8 +25,11 @@ require("which-key").setup({
     win = { border = "single" },
     icons = { mappings = false },
 })
+
 require("which-key").add({
-    { "<leader>pv", desc = "open netrw" },
+    { "<leader>n", group = "netrw" },
+    { "<leader>nn", vim.cmd.Ex, desc = "open netrw" },
+    { "<leader>nt", ":18Lexplore<CR>", desc = "toggle netrw" },
     { "<leader>y", desc = "copy to xclip" },
     { "<leader>v", group = "lsp/diagnostics" },
     { "<leader>vd", desc = "open diagnostic float" },
