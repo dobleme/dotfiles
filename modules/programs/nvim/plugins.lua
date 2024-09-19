@@ -38,24 +38,41 @@ require("which-key").add({
     --{ "<leader>vr", desc = "Rename symbol" },
 })
 
+require("telescope").setup({
+    pickers = {
+        -- File pickers
+        find_files = { follow = true },
+        live_grep = { theme = "ivy" },
+        -- Vim pickers
+        buffers = { theme = "ivy" },
+        quickfix = { theme = "ivy" },
+        -- LSP pickers
+        lsp_references = { theme = "ivy" },
+        lsp_incoming_calls = { theme = "ivy" },
+        lsp_outgoing_calls = { theme = "ivy" },
+        lsp_document_symbols = { theme = "ivy" },
+        lsp_workspace_symbols = { theme = "ivy" },
+        diagnostics = { theme = "ivy" },
+        lsp_implementations = { theme = "ivy" },
+        lsp_definitions = { theme = "ivy" },
+    },
+})
 local ts = require("telescope.builtin")
-local th = require("telescope.themes")
-local ivyTh = th.get_ivy({ layout_config = { height = 20 } })
-local dropdownTh = th.get_dropdown()
 require("which-key").add({
     { "<leader>f", group = "telescope" },
-    { "<leader>fb", function() ts.buffers(dropdownTh) end, desc = "find current buffers" },
-    { "<leader>fc", function() ts.lsp_incoming_calls(ivyTh) end, desc = "find incoming calls" },
-    { "<leader>fd", function() ts.lsp_definitions(ivyTh) end, desc = "find/go symbol definitions" },
-    { "<leader>fe", function() ts.diagnostics(theme) end, desc = "find diagnostics" },
-    { "<leader>ff", function() ts.find_files({ follow = true }) end, desc = "find files" },
-    { "<leader>fg", function() ts.live_grep(dropdownTh) end, desc = "live grep in workspace" },
-    { "<leader>fi", function() ts.lsp_implementations(ivyTh) end, desc = "find/go symbol implementations" },
-    { "<leader>fo", function() ts.lsp_outgoing_calls(ivyTh) end, desc = "find outgoing calls" },
-    { "<leader>fq", function() ts.quickfix(dropdownTh) end, desc = "find quickfix list" },
-    { "<leader>fr", function() ts.lsp_references(ivyTh) end, desc = "find symbol references" },
-    { "<leader>fs", function() ts.lsp_document_symbols(dropdownTh) end, desc = "find document symbols" },
-    { "<leader>fS", function() ts.lsp_workspace_symbols(dropdownTh) end, desc = "find workspace symbols" },
+    { "<leader>ff", ts.find_files, desc = "find files" },
+    { "<leader>fg", ts.live_grep, desc = "live grep in workspace" },
+    { "<leader>fb", ts.buffers, desc = "find current buffers" },
+    { "<leader>fh", ts.help_tags, desc = "find help tags" },
+    { "<leader>fq", ts.quickfix, desc = "find quickfix list" },
+    { "<leader>fr", ts.lsp_references, desc = "find symbol references" },
+    { "<leader>fc", ts.lsp_incoming_calls, desc = "find incoming calls" },
+    { "<leader>fo", ts.lsp_outgoing_calls, desc = "find outgoing calls" },
+    { "<leader>fs", ts.lsp_document_symbols, desc = "find document symbols" },
+    { "<leader>fS", ts.lsp_workspace_symbols, desc = "find workspace symbols" },
+    { "<leader>fe", ts.diagnostics, desc = "find diagnostics" },
+    { "<leader>fi", ts.lsp_implementations, desc = "find/go symbol implementations" },
+    { "<leader>fd", ts.lsp_definitions, desc = "find/go symbol definitions" },
 })
 
 local f = require("flash")

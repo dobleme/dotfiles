@@ -1,22 +1,32 @@
 -- Options
 vim.g.mapleader = " "
-
 vim.opt.guicursor = ""
-vim.opt.nu = true
-vim.opt.relativenumber = true
+vim.opt.termguicolors = true
+
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
+
 vim.opt.expandtab = true
 vim.opt.smartindent = true
+vim.opt.nu = true
+vim.opt.relativenumber = true
 vim.opt.wrap = false
-vim.opt.incsearch = true
-vim.opt.termguicolors = true
 vim.opt.scrolloff = 12
 vim.opt.colorcolumn = "80"
 
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.inccommand = "split"
+
 vim.o.timeout = true
 vim.o.timeoutlen = 500
+
+vim.opt.splitright = true
+vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 3
+vim.g.netrw_browse_split = 0
+vim.keymap.set("n", "<leader>n", ":18Lexplore<CR>")
 
 -- Keymaps
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
