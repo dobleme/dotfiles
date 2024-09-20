@@ -3,12 +3,6 @@ require("nvim-treesitter.configs").setup({
     indent = { enable = true }
 })
 
-require("gitsigns").setup({
-    signcolumn = true,
-    numhl = true,
-    current_line_blame = true
-})
-
 require("which-key").setup({
     marks = false,
     registers = true,
@@ -39,6 +33,23 @@ require("which-key").add({
     --{ "<leader>vh", desc = "Signature help symbol" },
     --{ "<leader>vo", desc = "Hover symbol" },
     --{ "<leader>vr", desc = "Rename symbol" },
+})
+
+local gs = require("gitsigns")
+gs.setup({
+    signcolumn = true,
+    numhl = true,
+    current_line_blame = false
+})
+require("which-key").add({
+    { "<leader>g", group = "git" },
+    { "<leader>gk", gs.prev_hunk, desc = "prev hunk" },
+    { "<leader>gj", gs.next_hunk, desc = "next hunk" },
+    { "<leader>gp", gs.preview_hunk, desc = "preview hunk" },
+    { "<leader>gs", gs.stage_hunk, desc = "stage hunk" },
+    { "<leader>gu", gs.undo_stage_hunk, desc = "undo stage hunk" },
+    { "<leader>gr", gs.reset_hunk, desc = "reset hunk" },
+    { "<leader>gb", gs.blame_line, desc = "blame line" },
 })
 
 require("telescope").setup({
