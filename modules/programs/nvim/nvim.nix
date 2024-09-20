@@ -45,6 +45,7 @@ in {
       nui-nvim
       noice-nvim
       flash-nvim
+      treesj
 
       #vim-nix
  

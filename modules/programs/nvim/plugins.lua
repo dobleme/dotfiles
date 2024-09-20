@@ -3,7 +3,8 @@ require("nvim-treesitter.configs").setup({
     indent = { enable = true }
 })
 
-require("which-key").setup({
+local wk = require("which-key")
+wk.setup({
     marks = false,
     registers = true,
     spelling = { enabled = false },
@@ -19,8 +20,7 @@ require("which-key").setup({
     win = { border = "single" },
     icons = { mappings = false },
 })
-
-require("which-key").add({
+wk.add({
     { "<leader>n", group = "netrw" },
     { "<leader>nn", vim.cmd.Ex, desc = "open netrw" },
     { "<leader>nt", ":18Lexplore<CR>", desc = "toggle netrw" },
@@ -41,7 +41,7 @@ gs.setup({
     numhl = true,
     current_line_blame = false
 })
-require("which-key").add({
+wk.add({
     { "<leader>g", group = "git" },
     { "<leader>gk", gs.prev_hunk, desc = "prev hunk" },
     { "<leader>gj", gs.next_hunk, desc = "next hunk" },
@@ -72,7 +72,7 @@ require("telescope").setup({
     },
 })
 local ts = require("telescope.builtin")
-require("which-key").add({
+wk.add({
     { "<leader>f", group = "telescope" },
     { "<leader>ff", ts.find_files, desc = "find files" },
     { "<leader>fg", ts.live_grep, desc = "live grep in workspace" },
@@ -90,10 +90,23 @@ require("which-key").add({
 })
 
 local f = require("flash")
-f.setup({ modes = { search = { enabled = true} } })
-require("which-key").add({
+f.setup({ modes = { search = { enabled = true } } })
+wk.add({
     { "<leader>j", f.jump, desc = "flash jump" },
-    { "<leader>s", f.treesitter , desc = "flash treesitter" },
+    { "<leader>J", f.treesitter , desc = "flash treesitter" },
+})
+
+local tsj = require("treesj")
+tsj.setup({
+    use_default_keymaps = false,
+    check_syntax_error = true,
+    max_join_length = 100,
+    notify = true,
+    dot_repeat = true,
+    on_error = nil,
+})
+wk.add({
+    { "<leader>t", tsj.toggle, desc = "split/join code blocks" },
 })
 
 local function macro_recording()
