@@ -28,10 +28,10 @@ in {
       vim.g.palette_base0F = "#${config.colorScheme.palette.base0F}"
    
       ${builtins.readFile ./plugins.lua}
+      ${builtins.readFile ./cmp.lua}
       '';
     extraPackages = with pkgs; [
       lua-language-server
-      go 
       nil
       gcc
     ];
@@ -43,22 +43,20 @@ in {
       which-key-nvim
       lualine-nvim
       nui-nvim
+      nvim-notify
       noice-nvim
       flash-nvim
       treesj
-
-      #vim-nix
- 
-      ## cmp
-      #cmp-buffer
-      #cmp-path
-      #cmp-cmdline
-      #nvim-cmp
- 
-      ## vsnip
-      #cmp-vsnip
-      #vim-vsnip
+      nvim-lspconfig
+      cmp-nvim-lsp
+      cmp-buffer
+      cmp-path
+      cmp-cmdline
+      nvim-cmp
+      cmp-vsnip
+      vim-vsnip
       #friendly-snippets
+      #vim-nix
     ];
   };
 }
